@@ -24,5 +24,26 @@
 		</div>
 	</div>
 </header>
+<main>
+	
+</main>
+<footer>
+	
+</footer>
+
+<script>
+	if (navigator.serviceWorker) {
+		navigator.serviceWorker.register('./js/service-worker.js', {scope: './'})
+		.then(function(registration) {
+			console.log(registration);
+		})
+		.catch(function(e) {
+			console.error(e);
+		})
+	} else {
+		console.log("Error. Service Worker is not supported");
+	}
+</script>
+
 </body>
 </html>
