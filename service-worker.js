@@ -1,11 +1,11 @@
-self.addListener('install', function(e) {
+self.addEventListener('install', function(e) {
 	console.log("install "+e);
 });
 
-self.addListener('activate', function(e) {
+self.addEventListener('activate', function(e) {
 	console.log("activate "+e);
 });
 
-self.addListener('fetch', function(e) {
+self.addEventListener('fetch', function(e) {
 	console.log("fetch "+e.request.url);
 });
