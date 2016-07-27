@@ -14,7 +14,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<h1>zoso.github.io</h1>
+				<h1>zoso.github.io - about</h1>
 			</div>
 			<div class="col-sm-12">
 				<p>
@@ -25,25 +25,17 @@
 	</div>
 </header>
 <main>
-	See more info on the <a href="about.html">about page</a>
+	<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					This is the about page - <a href="/">return</a>
+				</div>
+			</div>
+		</div>	
 </main>
 <footer>
 	
 </footer>
-
-<script>
-	if (navigator.serviceWorker) {
-		navigator.serviceWorker.register('./service-worker.js', {scope: './'})
-		.then(function(registration) {
-			console.log(registration);
-		})
-		.catch(function(e) {
-			console.error(e);
-		})
-	} else {
-		console.log("Error. Service Worker is not supported");
-	}
-</script>
 
 </body>
 </html>
