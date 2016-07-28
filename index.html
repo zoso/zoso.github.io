@@ -38,10 +38,20 @@
 </footer>
 
 <script>
+
 	if (navigator.serviceWorker) {
 		navigator.serviceWorker.register('./service-worker.js', {scope: './'})
 		.then(function(registration) {
 			console.log(registration);
+			registration.pushManager.subscribe().then(
+				function(pushSubscription) {
+					console.log(pushSubscription.endpoint);
+					console.log(pushSubscription.getKey('p256dh'));
+        			console.log(pushSubscription.getKey('auth'));
+				}, function(error) {
+					console.log(error);
+				}
+			)
 		})
 		.catch(function(e) {
 			console.error(e);
