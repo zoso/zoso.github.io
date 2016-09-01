@@ -7,7 +7,8 @@
 	    <meta name="description" content="">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	    <link rel="stylesheet" href="style.css">   
+	    <link rel="stylesheet" href="style.css">  
+	    <link rel="manifest" href="manifest.json"> 
 	</head>
 <body>
 <header>
@@ -43,15 +44,13 @@
 		navigator.serviceWorker.register('./service-worker.js', {scope: './'})
 		.then(function(registration) {
 			console.log(registration);
-			registration.pushManager.subscribe().then(
-				function(pushSubscription) {
-					console.log(pushSubscription.endpoint);
-					console.log(pushSubscription.getKey('p256dh'));
-        			console.log(pushSubscription.getKey('auth'));
-				}, function(error) {
-					console.log(error);
+			registration.pushManager.subscribe(
+				{
+					userVisibleOnly: true
 				}
-			)
+			).then(function(sub) {
+				console.log("endpoint", sub.endpoint);
+			})
 		})
 		.catch(function(e) {
 			console.error(e);

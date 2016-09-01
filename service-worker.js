@@ -35,3 +35,13 @@ self.addEventListener('fetch', function(e) {
 		})
 	);
 });
+
+self.addEventListener('push', function(event) {
+  console.log('Push message', event);
+  var title = 'Push message';
+  event.waitUntil(
+    self.registration.showNotification(title, {
+      body: 'The Message',
+      tag: 'my-tag'
+    }));
+});
